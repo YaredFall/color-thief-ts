@@ -11,17 +11,6 @@
   "main": "./dist/browser.js",
   "module": "./dist/browser.mjs",
   "types": "./dist/browser.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/browser.mjs",
-      "require": "./dist/browser.js",
-      "node": "./dist/node.js"
-    },
-    "./node": {
-      "import": "./dist/node.mjs",
-      "require": "./dist/node.js"
-    }
-  },
   "typesVersions": {
     "*": {
       "browser": [
