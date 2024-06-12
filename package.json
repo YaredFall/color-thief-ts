@@ -1,6 +1,9 @@
 {
-  "name": "color-thief-ts",
-  "version": "1.1.1",
+  "name": "@yaredfall/color-thief-ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.1.4",
   "description": "Get the dominant color or color palette from an image.",
   "type": "module",
   "files": [
@@ -9,8 +12,21 @@
     "package.json"
   ],
   "main": "./dist/browser.js",
-  "module": "./dist/browser.mjs",
+  "module": "./dist/browser.js",
   "types": "./dist/browser.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/browser.js",
+      "require": "./dist/browser.cjs",
+      "node": "./dist/node.cjs",
+      "types": "./dist/browser.d.ts"
+    },
+    "./node": {
+      "import": "./dist/node.js",
+      "require": "./dist/node.cjs",
+      "types": "./dist/node.d.ts"
+    }
+  },
   "typesVersions": {
     "*": {
       "browser": [
@@ -22,7 +38,7 @@
     }
   },
   "scripts": {
-    "build": "yarn  build:browser && yarn build:node",
+    "build": "npm run build:browser && npm run build:node",
     "build:browser": "tsup src/browser.ts --format esm,cjs --dts",
     "build:node": "tsup src/node.ts --format esm,cjs --dts",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -50,6 +66,7 @@
     "quantize": "^1.0.2"
   },
   "devDependencies": {
+    "@types/node": "^20.14.2",
     "tsup": "^6.5.0",
     "typescript": "^4.9.4"
   }
